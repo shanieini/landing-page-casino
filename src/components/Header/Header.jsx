@@ -1,4 +1,5 @@
 import './Header.scss';
+import Logo from '../../assets/Codere_Logo.svg.png';
 
 export default function Header() {
   const jackpots = Array(5).fill('JACKPOTS');
@@ -6,7 +7,7 @@ export default function Header() {
   return (
     <header>
       <div className='header'>
-        <div>codere</div>
+        <img src={Logo} alt="Codere Logo" className='logo' />
         <div className='jackpots-container'>
           {jackpots.map((text, index) => (
             <div key={index}>{text}</div>

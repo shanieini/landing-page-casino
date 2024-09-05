@@ -1,45 +1,37 @@
 import './GameOdds.scss';
 import GameOddsList from '../GameOddsList/GameOddsList.jsx';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { observer } from 'mobx-react';
 import { gameOddsStore } from '../../stores/GameOddsStore.js';
 import { Select, MenuItem, CircularProgress } from '@mui/material';
 
 export default observer(function GameOdds() {
-  const [sortedGames, setSortedGames] = useState([]);
   const [sortMethod, setSortMethod] = useState('date');
 
   useEffect(() => {
     gameOddsStore.fetchGameOdds();
   }, []);
 
-  useEffect(() => {
+  const sortedGames = useMemo(() => {
     const gamesToSort = [...gameOddsStore.gameOddsData];
-    const sortedByDate = gamesToSort.sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
-    setSortedGames(sortedByDate);
-  }, [gameOddsStore.gameOddsData]);
-
-  useEffect(() => {
-    let gamesToSort = [...gameOddsStore.gameOddsData];
 
     switch (sortMethod) {
       case 'name-asc':
-        const sortedByNameAsc = gamesToSort.sort((a, b) => {
-          return a.games[0].name.localeCompare(b.games[0].name);
+        return gamesToSort.sort((a, b) => {
+          const nameA = a.name || ''; // Fallback to empty string
+          const nameB = b.name || ''; // Fallback to empty string
+          return nameA.localeCompare(nameB);
         });
-        setSortedGames(sortedByNameAsc);
-        break;
       case 'name-desc':
-        const sortedByNameDesc = [...gamesToSort].sort((a, b) => {
-          return b.games[0].name.localeCompare(a.games[0].name);
+        return gamesToSort.sort((a, b) => {
+          const nameA = a.name || ''; // Fallback to empty string
+          const nameB = b.name || ''; // Fallback to empty string
+          return nameB.localeCompare(nameA);
         });
-        setSortedGames(sortedByNameDesc);
-        break;
       default:
-        const defaultSorted = [...gamesToSort].sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
-        setSortedGames(defaultSorted);
+        return gamesToSort.sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
     }
-  }, [sortMethod]);
+  }, [gameOddsStore.gameOddsData, sortMethod]);
 
   return (
     <div className='game-odds'>

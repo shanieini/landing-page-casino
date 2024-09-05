@@ -1,0 +1,31 @@
+.games {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 25px;
+    padding: 20px 0;
+
+    .games-container-title {
+        text-align: center;
+        width: 100%;
+        font-size: 44px;
+        letter-spacing: 0.44px;
+        color: #79C000;
+    }
+
+    .games-list {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+
+        div {
+            width: 21.5%;
+
+            img {
+                width: 100%;
+                border-radius: 10px;
+            }
+        }
+    }
+}
