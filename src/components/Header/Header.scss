@@ -1,0 +1,26 @@
+.header {
+  background-color: #79C000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+
+  .jackpots-container {
+    display: flex;
+    gap: 2rem;
+
+    div {
+      font: normal normal bold 24px/32px Roboto;
+      color: #333F48;
+    }
+  }
+  .acceder {
+    padding: 10px;
+    border: 2px solid #333F48;
+    border-radius: 25px;
+    opacity: 1;
+    letter-spacing: 0.22px;
+    color: #333F48;
+    opacity: 1;
+  }
+}
