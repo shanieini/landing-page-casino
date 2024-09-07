@@ -12,11 +12,15 @@ class GameOddsStore {
     this.gameOddsData = data;
   }
 
+  addMatch(matchObject) {
+    this.gameOddsData.push(matchObject);
+  }
+
+
   async fetchGameOdds() {
     try {
       const data = await getGameOdds();
       this.setGameOddsData(data);
-      console.log(data, "data");
     } catch (error) {
       console.error("Failed to get game odds data:", error);
     }

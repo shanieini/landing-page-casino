@@ -5,7 +5,7 @@ import ImageOne from '../../assets/RiverSponsorshipImage.png';
 import ImageTwo from '../../assets/LiveDealerImage.png';
 import ImageThree from '../../assets/MultisportImage.png';
 
-export default function GamesProfilesList() {
+export default function GamesProfilesList({ isMobile }) {
     const gameProfiles = [
         { title: 'CASA DE APUESTAS OFICIAL', imageUrl: ImageOne, imageAlt: 'River Sponsorship', imagePosition: 'right', ButtonTitle: 'APOSTA EN VIVO' },
         { title: 'CASINO EN VIVO', imageUrl: ImageTwo, imageAlt: 'Live Dealer', imagePosition: 'left', ButtonTitle: 'VER MAS' },
@@ -22,6 +22,8 @@ export default function GamesProfilesList() {
                     imageAlt={profile.imageAlt} // Passing the alt text
                     imagePosition={profile.imagePosition}
                     ButtonTitle={profile.ButtonTitle}
+                    isMobile={isMobile}
+                    isLastProfile={index === gameProfiles.length - 1}
                 />
             ))}
         </div>

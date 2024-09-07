@@ -12,6 +12,7 @@
 
         img {
             width: 100%;
+            object-fit: fill;
         }
     }
 
@@ -28,11 +29,23 @@
             align-items: center;
             gap: 1rem;
 
+            @media (max-width: 768px) {
+                flex-direction: column;
+                gap: unset;
+            }
+
             .divaider {
                 width: 6px;
                 height: 3rem;
                 background: #79C000 0% 0% no-repeat padding-box;
                 border-radius: 4px;
+            }
+
+            .dots {
+                text-align: center;
+                font: normal normal normal 42px/32px Rockwell;
+                letter-spacing: 0.42px;
+                color: #79C000;
             }
 
             .title {
@@ -62,6 +75,33 @@
                 height: 100%;
             }
         }
+
+        .icons-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            gap: 1rem;
+            flex-wrap: wrap;
+
+            .icon-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: 5px;
+
+                img {
+                    width: 46px;
+                    height: auto;
+                }
+
+                .icon-name {
+                    margin-top: 5px;
+                    text-align: center;
+                    color: #EFEFEF;
+                    font-size: 10px;
+                }
+            }
+        }
     }
 
     &.image-right {
@@ -70,5 +110,43 @@
 
     &.image-left {
         flex-direction: row;
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+
+        .image-container,
+        .text-container {
+            width: 100%;
+        }
+
+        .image-container img {
+            border-radius: 20px;
+        }
+
+        .text-container {
+            padding-top: unset;
+            align-items: center;
+
+            .title-container .title {
+                font-size: 1.7rem;
+                text-align: center;
+            }
+
+            .description {
+                font-size: 1.2rem;
+                text-align: center;
+            }
+
+            .button {
+                width: 50%;
+                font-size: 1.2rem;
+            }
+        }
+
+        &.image-right,
+        &.image-left {
+            flex-direction: column;
+        }
     }
 }

@@ -1,0 +1,67 @@
+.add-match-form {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 25px;
+    background: rgba(0, 0, 0, 0.3);
+
+    h3 {
+        text-align: center;
+        color: #79C000;
+        font-size: 1.5rem;
+    }
+
+    .form-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            gap: 0;
+        }
+    }
+
+    .MuiTextField-root {
+        flex: 1;
+
+        input {
+            color: white;
+        }
+
+        label {
+            color: #79C000;
+        }
+
+        fieldset {
+            border-color: #79C000;
+        }
+    }
+
+    .error {
+        color: red;
+        font-size: 0.85em;
+        margin-top: 10px;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+
+        button {
+            background-color: #79C000;
+            color: black;
+
+            @media (max-width: 768px) {
+                width: 100%;
+            }
+
+
+            @media (min-width: 769px) {
+                width: auto;
+            }
+
+            font-size: 1rem;
+        }
+    }
+}

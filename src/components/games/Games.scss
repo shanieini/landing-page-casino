@@ -6,18 +6,35 @@
     border-radius: 25px;
     padding: 20px 0;
 
+    @media (max-width: 768px) {
+        gap: unset;
+    }
+
     .games-container-title {
         text-align: center;
         width: 100%;
         font-size: 44px;
         letter-spacing: 0.44px;
         color: #79C000;
+
+        @media (max-width: 768px) {
+            font-size: 30px;
+        }
+    }
+
+    .dots {
+        text-align: center;
+        font: normal normal normal 42px/32px Rockwell;
+        letter-spacing: 0.42px;
+        color: #79C000;
+        margin-bottom: 1.5rem;
     }
 
     .games-list {
         display: flex;
         gap: 2rem;
         justify-content: center;
+        flex-wrap: wrap;
 
         div {
             width: 21.5%;
@@ -25,6 +42,14 @@
             img {
                 width: 100%;
                 border-radius: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            gap: 1rem;
+
+            div {
+                width: 45%;
             }
         }
     }

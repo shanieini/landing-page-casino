@@ -5,15 +5,23 @@
   align-items: center;
   padding: 10px 20px;
 
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+
   .logo {
-    width: 208px;
+    width: 8rem;
     height: auto;
-    margin-right: 20px;
   }
 
   .jackpots-container {
     display: flex;
     gap: 2rem;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
 
     div {
       font: normal normal bold 24px/32px Roboto;
@@ -27,6 +35,17 @@
     border-radius: 25px;
     letter-spacing: 0.22px;
     color: #333F48;
-    cursor: pointer; // Change cursor to indicate clickable
+    cursor: pointer;
+  }
+
+  .menu-icon {
+    display: none;
+
+    @media (max-width: 768px) {
+      display: block;
+      margin-right: 8px;
+      font-size: 3rem;
+      color: #252A30;
+    }
   }
 }
