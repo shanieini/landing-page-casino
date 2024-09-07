@@ -44,6 +44,10 @@ export default observer(function GameOdds({ isMobile }) {
     setSnackbarOpen(true);
   };
 
+  const handleCloseSnackbar = () => {
+    setSnackbarOpen(false);
+  };
+
   return (
     <div className='game-odds'>
       <div className='control-container'>
@@ -71,6 +75,7 @@ export default observer(function GameOdds({ isMobile }) {
       <Snackbar
         open={snackbarOpen}
         autoHideDuration={3000}
+        onClose={handleCloseSnackbar}
       >
         <SnackbarContent
           style={{ backgroundColor: '#79C000', color: 'black' }}

@@ -19,7 +19,7 @@ export default function GamesProfilesList({ isMobile }) {
                     key={index}
                     title={profile.title}
                     imageUrl={profile.imageUrl}
-                    imageAlt={profile.imageAlt} // Passing the alt text
+                    imageAlt={profile.imageAlt}
                     imagePosition={profile.imagePosition}
                     ButtonTitle={profile.ButtonTitle}
                     isMobile={isMobile}
